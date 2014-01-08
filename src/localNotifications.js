@@ -1,16 +1,16 @@
 /**
- * Safari Local Notifications
+ * Local Notifications
  *
  * @author Jeroen Desloovere <jeroen@siesqo.be>
  */
-safariLocalNotifications =
+localNotifications =
 {
     identifier: null, // web.com.example.domain
     permissionData: null,
     init: function()
     {
         // not supported, remain silently
-        if (!safariLocalNotifications.isSupported()) return;
+        if (!localNotifications.isSupported()) return;
     },
 
     /**
@@ -34,20 +34,26 @@ safariLocalNotifications =
         return ('Notification' in window);
     },
 
-	/**
-	 * Post a message
-	 */
-    post: function(notificationMessage, notificationBody, notificationTag, callbackAfterNotification)
-    {  
+    /**
+     * Post a message
+     *
+     * @param string notificationMessage
+     * @param string notificationBody
+     * @param string notificationTag Should be unique
+     * @param string[optional] callbackForSuccess
+     * @param string[optional] callbackForDenied
+     */
+    post: function(notificationMessage, notificationBody, notificationTag, callbacks)
+    {
         // not yet subscribed
-        if (safariLocalNotifications.getPermissionState() === 'default') {
+        if (localNotifications.getPermissionState() === 'default') {
             // request permission
-            Notification.requestPermission(function() {
-                safariLocalNotifications.post(
+            return Notification.requestPermission(function() {
+                localNotifications.post(
                     notificationMessage,
                     notificationBody,
                     notificationTag,
-                    callbackAfterNotification
+                    callbacks
                 )
             });
         }
@@ -61,17 +67,28 @@ safariLocalNotifications =
             }
         );
 
+        // notify when shown successfull
+        n.onshow = function () {
+            return (callbacks.onshow) ? callbacks.onshow() : true;
+        };
+
         // remove the notification from Notification Center when clicked.
         n.onclick = function () {
             this.close();
+            return (callbacks.onclick) ? callbacks.onclick() : true;
         };
 
         // callback function when the notification is closed.
         n.onclose = function () {
-            callbackAfterNotification;
+            return (callbacks.onclose) ? callbacks.onclose() : true;
+        };
+
+        // notification cannot be presented to the user, this event is fired if the permission level is set to denied or default.
+        n.onerror = function () {
+            return (callbacks.onerror) ? callbacks.onerror() : true;
         };
 	}
 }
 
 // initialize
-safariLocalNotifications.init();
+localNotifications.init();
