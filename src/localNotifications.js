@@ -20,7 +20,7 @@ localNotifications =
      */
     getPermissionState: function()
     {
-        return Notification.permission;
+        return window.Notification.permission;
     },
 
     /**
