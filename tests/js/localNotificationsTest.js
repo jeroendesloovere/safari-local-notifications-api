@@ -18,7 +18,7 @@ localNotificationsTest =
             'onerror': localNotificationsTest.onerror
         };
 
-        // bind click to button
+        // trigger a notification to be shown
         return localNotifications.post(
             'message-title',
             'message-body',
