@@ -42,9 +42,13 @@ safariLocalNotifications =
         // not yet subscribed
         if (safariLocalNotifications.getPermissionState() === 'default') {
             // request permission
-            Notification.requestPermission(function () {
-                safariLocalNotifications.post(notificationMessage, notificationBody, notificationTag),
-                notificationCallback
+            Notification.requestPermission(function() {
+                safariLocalNotifications.post(
+                    notificationMessage,
+                    notificationBody,
+                    notificationTag,
+                    callbackAfterNotification
+                )
             });
         }
 
