@@ -5,11 +5,11 @@
  */
 localNotifications =
 {
-    identifier: null, // web.com.example.domain
+    identifier: null, // f.e.: web.com.example.domain
     permissionData: null,
     init: function()
     {
-        // not supported, remain silently
+        // not supported, stop silently
         if (!localNotifications.isSupported()) return;
     },
 
@@ -37,6 +37,7 @@ localNotifications =
     /**
      * Post a message
      *
+     * @return bool
      * @param string notificationMessage
      * @param string notificationBody
      * @param string notificationTag Should be unique
@@ -87,7 +88,7 @@ localNotifications =
         n.onerror = function () {
             return (callbacks.onerror) ? callbacks.onerror() : true;
         };
-	}
+    }
 }
 
 // initialize
