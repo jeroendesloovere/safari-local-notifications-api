@@ -5,30 +5,33 @@ This jQuery Safari Local Notifications class can send local notifications to the
 ## Example
 
 ```
-var title = 'message-title';
-var body = 'message-body';
-var tag = 'my-unique-tag-01';
-
-// define callback functions
-var callbackFunctions = {
-    'onshow': myCustomFunction,
-    'onclick': myCustomFunction,
-    'onclose': myCustomFunction,
-    'onerror': myCustomFunction
-};
-
-// trigger a notification to be shown
-return localNotifications.post(
-    title,
-    body,
-    tag,
-    callbackFunctions
-);
-
-function myCustomFunction()
-{
-    alert('Action done');
-}
+<script src="src/localNotifications.js"/>
+<script>
+    var title = 'message-title';
+    var body = 'message-body';
+    var tag = 'my-unique-tag-01';
+    
+    // define callback functions
+    var callbackFunctions = {
+        'onshow': myCustomFunction,
+        'onclick': myCustomFunction,
+        'onclose': myCustomFunction,
+        'onerror': myCustomFunction
+    };
+    
+    // trigger a notification to be shown
+    return localNotifications.post(
+        title,
+        body,
+        tag,
+        callbackFunctions
+    );
+    
+    function myCustomFunction()
+    {
+        alert('Action done');
+    }
+</script>
 ```
 [Check full source code for example](/examples)
 
