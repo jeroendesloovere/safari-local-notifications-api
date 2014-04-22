@@ -2,6 +2,36 @@
 
 This jQuery Safari Local Notifications class can send local notifications to the Safari visitors of your website.
 
+## Example
+
+```
+var title = 'message-title';
+var body = 'message-body';
+var tag = 'my-unique-tag-01';
+
+// define callback functions
+var callbackFunctions = {
+    'onshow': myCustomFunction,
+    'onclick': myCustomFunction,
+    'onclose': myCustomFunction,
+    'onerror': myCustomFunction
+};
+
+// trigger a notification to be shown
+return localNotifications.post(
+    title,
+    body,
+    tag,
+    callbackFunctions
+);
+
+function myCustomFunction()
+{
+    alert('Action done');
+}
+```
+[Check full source code for example](/examples)
+
 ## Contributing
 
 It would be great if you could help us improve this class. GitHub does a great job in managing collaboration by providing different tools, the only thing you need is a [GitHub](http://github.com) login.
