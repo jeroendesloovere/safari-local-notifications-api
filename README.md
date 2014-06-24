@@ -4,7 +4,7 @@ This jQuery Safari Local Notifications class can send local notifications to the
 
 ## Example
 
-```
+``` html
 <script src="src/localNotifications.js"/>
 <script>
     var title = 'message-title';
