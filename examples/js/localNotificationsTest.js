@@ -1,7 +1,7 @@
 /**
  * Local Notifications - test
  *
- * @author Jeroen Desloovere <jeroen@siesqo.be>
+ * @author Jeroen Desloovere <info@jeroendesloovere.be>
  */
 localNotificationsTest =
 {
