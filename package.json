@@ -1,0 +1,40 @@
+{
+  "name": "safari-local-notifications-api",
+  "version": "1.0.0",
+  "description": "Push Local Notifications in Safari",
+  "maintainers": [
+    {
+      "name": "Jeroen Desloovere",
+      "email": "info@jeroendesloovere.be",
+      "url": "http://jeroendesloovere.be"
+    }
+  ],
+  "author": {
+    "name": "Jeroen Desloovere",
+    "email": "info@jeroendesloovere.be"
+  },
+  "contributors": [
+    {
+      "name": "Jeroen Desloovere",
+      "email": "info@jeroendesloovere.be"
+    }
+  ],
+  "main": "src/localNotifications.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeroendesloovere/safari-local-notifications-api.git"
+  },
+  "keywords": [
+    "safari",
+    "push",
+    "local",
+    "notifications"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "homepage": "https://github.com/jeroendesloovere/safari-local-notifications-api"
+}
