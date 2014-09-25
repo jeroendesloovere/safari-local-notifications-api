@@ -1,0 +1,13 @@
+{
+  "name": "safari-local-notifications-api",
+  "version": "1.0.0",
+  "main": "src/localNotifications.js",
+  "ignore": [
+    "**/.*",
+    "component.json",
+    "package.json",
+    "Makefile",
+    "tests",
+    "examples"
+  ]
+}
